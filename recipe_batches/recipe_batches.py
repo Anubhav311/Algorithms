@@ -3,7 +3,14 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass
+  temp = []
+  for key in recipe:
+    if ingredients.get(key) and (ingredients[f"{key}"] / recipe[f"{key}"]) >= 1:
+      temp.append(ingredients[f"{key}"] // recipe[f"{key}"])
+    else:
+      return 0
+
+  return min(temp)
 
 # recipe_batches({ 'milk': 100, 'butter': 50, 'flour': 5 }, {})
 
